@@ -156,7 +156,6 @@ storage/
 public/uploads/
 
 # dotenv backups
-.env.*
 
 # Generated documentation
 docs/
