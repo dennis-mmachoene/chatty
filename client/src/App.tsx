@@ -1,35 +1,107 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// ============================================
+// FILE: src/App.tsx
+// Main application component with routing
+// ============================================
+
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Toaster } from 'react-hot-toast';
+import { AuthLayout } from '@/layouts/AuthLayout';
+import { AppLayout } from '@/layouts/AppLayout';
+import { LandingLayout } from '@/layouts/LandingLayout';
+import { Landing } from '@/pages/Landing';
+import { Login } from '@/pages/Auth/Login';
+import { Dashboard } from '@/pages/Dashboard';
+import { Profile } from '@/pages/Profile';
+import { Settings } from '@/pages/Settings';
+import { NotFound } from '@/pages/NotFound';
+import { ROUTES } from '@/utils/constants';
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 5 * 60 * 1000, // 5 minutes
+      refetchOnWindowFocus: false,
+      retry: 1,
+    },
+  },
+});
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Routes>
+          {/* Landing routes */}
+          <Route element={<LandingLayout />}>
+            <Route path={ROUTES.HOME} element={<Landing />} />
+          </Route>
+
+          {/* Auth routes */}
+          <Route element={<AuthLayout />}>
+            <Route path={ROUTES.LOGIN} element={<Login />} />
+            <Route path={ROUTES.SIGNUP} element={<Login />} />
+          </Route>
+
+          {/* App routes */}
+          <Route element={<AppLayout />}>
+            <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
+            <Route path={ROUTES.PROFILE} element={<Profile />} />
+            <Route path={ROUTES.SETTINGS} element={<Settings />} />
+          </Route>
+
+          {/* 404 */}
+          <Route path={ROUTES.NOT_FOUND} element={<NotFound />} />
+          <Route path="*" element={<Navigate to={ROUTES.NOT_FOUND} replace />} />
+        </Routes>
+      </BrowserRouter>
+
+      {/* Toast notifications */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          duration: 3000,
+          style: {
+            background: 'var(--toast-bg)',
+            color: 'var(--toast-color)',
+          },
+          success: {
+            iconTheme: {
+              primary: '#10b981',
+              secondary: '#fff',
+            },
+          },
+          error: {
+            iconTheme: {
+              primary: '#ef4444',
+              secondary: '#fff',
+            },
+          },
+        }}
+      />
+    </QueryClientProvider>
+  );
 }
 
-export default App
+export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
