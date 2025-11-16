@@ -1,15 +1,62 @@
-# Chatty - Chat Application
+# 💬 **Chatty — Modern Real-Time Chat Application**
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+A sleek, high-performance chat application built with cutting-edge technologies.  
+Chatty supports **real-time messaging**, **voice & video calls**, **user statuses**, **media sharing**, and more — designed for speed, reliability, and a premium user experience.
 
-A chat application built with modern technologies, featuring real-time messaging, voice/video calls, statuses, and more.
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  <img src="https://img.shields.io/github/languages/top/dennis-mmachoene/chatty" />
+</p>
 
-## Authors
+---
 
-- Dennis Mmachoene Ramra - [GitHub](https://github.com/dennis-mmachoene)
+## ✨ **Features**
 
-## Support
+- ⚡ **Real-time Messaging** — ultra-fast, seamless communication  
+- 🎥 **Voice & Video Calls** — low-latency WebRTC powered experience  
+- 🟢 **Online/Offline Status** — presence indicators  
+- 💬 **Group & Private Chats**  
+- 📸 **Image, File & Media Sharing**  
+- 🛡️ **Secure Authentication**  
+- 🎨 **Modern UI with Responsive Design**  
+- 🌐 **Cross-Platform Support**
 
-For support, email dennism.ramara@gmail.com or open an issue on GitHub.
+---
 
+## 🛠️ **Tech Stack**
 
+| Layer | Technologies |
+|-------|--------------|
+| **Frontend** | React / Next.js / Tailwind CSS |
+| **Backend** | Node.js / Express / WebSockets |
+| **Real-Time** | Socket.IO / WebRTC |
+| **Database** | MongoDB / Firebase / Prisma (depending on setup) |
+| **Auth** | Clerk / Auth.js / JWT |
+| **Deployment** | Vercel / Railway / Docker |
+
+---
+
+## 👤 **Author**
+
+**Dennis Mmachoene Ramra**  
+🔗 GitHub: [@dennis-mmachoene](https://github.com/dennis-mmachoene)
+
+---
+
+## 📧 **Support**
+
+If you'd like support, have questions, or want to contribute:
+
+📩 Email: **dennism.ramara@gmail.com**  
+🐛 Open an issue: *via GitHub Issues*
+
+---
+
+## 📄 **License**
+
+This project is licensed under the **MIT License** — feel free to modify and use it in your own work.
+
+---
+
+### ⭐ If you like this project, give it a star on GitHub!
